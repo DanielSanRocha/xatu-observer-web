@@ -77,7 +77,6 @@ export default {
           that.logs
         }).catch((e) => {
           console.error(e)
-          that.addEditDialog.active = false
           const message = e.response.data.message
           that.logModal.open(e.name, message)
         })

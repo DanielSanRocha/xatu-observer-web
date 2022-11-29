@@ -12,6 +12,9 @@
           <strong>pidFile</strong>: {{ service.pid_file }} <br />
           <strong>logFileDirectory</strong>: {{ service.log_file_directory }}<br />
           <strong>logFileRegex</strong>: {{ service.log_file_regex }}<br />
+          <strong>Status</strong>:
+          <span v-if="service.status === 'W'" style="color: green">Working</span>
+          <span v-else style="color: red">Failure</span>
         </v-card-text>
       </v-card>
 
@@ -91,6 +94,8 @@ export default {
   mounted() {
     this.logModal = document.getElementById('log-modal')
     this.reload()
+    const that = this
+    setInterval(() => { that.reload() }, 5000)
   },
   methods: {
     reload() {
