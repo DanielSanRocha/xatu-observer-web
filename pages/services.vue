@@ -3,6 +3,7 @@
     <v-col cols="12" sm="8" md="6">
       <v-card class="service-card" v-for="service in services" :key="service.id" elevation="2" outlined tile>
         <v-card-title class="service-card-title">
+          <span>{{ service.id }} -&ensp;</span>
           <v-btn @click="() => editService(service)">{{ service.name }}</v-btn>
           <v-btn icon @click="() => removeService(service)">
             <v-icon>mdi-close</v-icon>

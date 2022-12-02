@@ -3,6 +3,7 @@
     <v-col cols="12" sm="8" md="6">
       <v-card class="api-card" v-for="api in apis" :key="api.id" elevation="2" outlined tile>
         <v-card-title class="api-card-title">
+          <span>{{ api.id }} - &ensp;</span>
           <v-btn @click="() => editAPI(api)">{{ api.name }}</v-btn>
           <v-btn icon @click="() => removeAPI(api)">
             <v-icon>mdi-close</v-icon>

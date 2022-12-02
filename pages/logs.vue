@@ -74,7 +74,6 @@ export default {
       client.get("/logs?query=" + fullQuery)
         .then((response) => {
           that.logs = response.data.hits.sort(function (a, b) { return b.created_at - a.created_at })
-          that.logs
         }).catch((e) => {
           console.error(e)
           const message = e.response.data.message

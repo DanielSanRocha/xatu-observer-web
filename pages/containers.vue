@@ -3,7 +3,7 @@
     <v-col cols="12" sm="8" md="6">
       <v-card class="container-card" v-for="container in containers" :key="container.id" elevation="2" outlined tile>
         <v-card-title class="container-card-title">
-          <span>{{ container.name }}</span>
+          <span>{{ container.id }} - {{ container.name }}</span>
           <v-btn icon @click="() => removeContainer(container)">
             <v-icon>mdi-close</v-icon>
           </v-btn>
@@ -94,6 +94,7 @@ export default {
 
       client.get("/containers?limit=100&offset=0").then((response) => {
         that.containers = response.data.hits
+        console.log("Respones /containers ->", response)
       }).catch((e) => {
         console.error(e)
         const message = e.response.data.message
