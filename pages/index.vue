@@ -73,13 +73,25 @@ export default {
     reload() {
       const that = this
 
-      client.get('/status').then((response) => {
-        that.status = response.data
-      })
+      client
+        .get('/status')
+        .then((response) => {
+          that.status = response.data
+        })
+        .catch((e) => {
+          console.error('Error getting status: ', e)
+          that.healthcheck = e.response.data
+        })
 
-      client.get(`/healthcheck`).then((response) => {
-        that.healthcheck = response.data
-      })
+      client
+        .get(`/healthcheck`)
+        .then((response) => {
+          that.healthcheck = response.data
+        })
+        .catch((e) => {
+          console.error('Error getting healthcheck', e)
+          that.healthcheck = e.response.data
+        })
     },
   },
 }
