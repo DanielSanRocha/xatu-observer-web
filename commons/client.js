@@ -6,9 +6,9 @@ let host = ''
 if (process.browser) {
     token = localStorage.getItem('token')
 
-    // const getUrl = window.location
-    // host = getUrl.protocol + '//' + getUrl.host + '/api'
-    host = 'http://localhost:8089'
+    const getUrl = window.location
+    host = getUrl.protocol + '//' + getUrl.host + '/api'
+    // host = 'http://localhost:8089'
 }
 
 const client = axios.create({
